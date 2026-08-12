@@ -1,0 +1,156 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.message-wrapper {
+  display: flex;
+  gap: 1rem;
+  max-width: 90%;
+}
+
+.message-wrapper.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-border);
+  flex-shrink: 0;
+}
+
+.message-wrapper.user .avatar {
+  background: var(--primary-color);
+}
+
+.message-wrapper.bot .avatar {
+  background: var(--accent-color);
+}
+
+.message-wrapper.error .avatar {
+  background: #ef4444;
+}
+
+.message-content {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--surface-border);
+}
+
+.message-wrapper.user .message-content {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.message-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cypher-block {
+  margin-top: 1rem;
+  background: #0f172a;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+}
+
+.cypher-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--surface-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.cypher-block code {
+  display: block;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.input-area {
+  display: flex;
+  padding: 1rem;
+  gap: 0.5rem;
+  background: rgba(0,0,0,0.2);
+  border-top: 1px solid var(--surface-border);
+}
+
+.input-area input {
+  flex: 1;
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-area input:focus {
+  border-color: var(--primary-color);
+}
+
+.input-area button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.input-area button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
